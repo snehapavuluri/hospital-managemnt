@@ -1,0 +1,583 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <title>Doctor Appointment And Scheduling System</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.5/angular.js" data-semver="1.2.5" data-require="angular.js@1.2.5"></script>
+    <link href="http://ironsummitmedia.github.io/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="../../Js/Doctor.js" type="text/javascript"></script>
+    <script src="../../Js/Common.js" type="text/javascript"></script>
+    <link href="../../CSS/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="app">
+    <form name="productForm">
+    <div id="main">
+        <div class="topbar" style="">
+            <div class="fill">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h3>
+                                <img src="../../Images/Doctor.png" width="30" height="28" alt="Doctor Appointment And Scheduling System"
+                                    title="Doctor Appointment And Scheduling System">
+                                Doctor Appointment And Scheduling System - Patient Details</h3>
+                        </div>
+                        <div class="col-sm-2">
+                            <ul class="nav secondary-nav">
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>Sneha Pavuluri <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-fw fa-user"></i>Change Password</a> </li>
+                                        <li class="divider"></li>
+                                        <li><a href="../../DoctorLogin.html"><i class="fa fa-fw fa-power-off"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="container">
+                <div class="menu_nav">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="PatientSearch.html">Patients</a></li>
+                        <li><a href="DoctorDashboard.html">Doctor Dashboard</a></li>
+                        <li><a href="DoctorClinicDetails.html">Clinic Home</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="page_home">
+            <div class="container">
+                <div class="mainbody">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="pill" href="#Appointments">Appointment Details</a></li>
+                        <li><a data-toggle="pill" href="#History">History</a></li>
+                        <li><a data-toggle="pill" href="#Profile">Profile</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="Appointments" class="tab-pane fade in active">
+                            <br />
+                            <fieldset class="fsStyle">
+                                <legend class="legendStyle"><b>Current Appointments</b></legend>
+                                <div class="table-responsive" ng-controller="CurrentAppointmentsCtrl">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr class="tableDataHead no-gutter success">
+                                                <th>
+                                                    Date
+                                                </th>
+                                                <th>
+                                                    Time
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                                <th>
+                                                    Doctor Name
+                                                </th>
+                                                <th>
+                                                    Clinic Name
+                                                </th>
+                                                <th>
+                                                    Address Line1
+                                                </th>
+                                                <th>
+                                                    City
+                                                </th>
+                                                <th>
+                                                    State
+                                                </th>
+                                                <th>
+                                                    Reason
+                                                </th>
+                                                <th>
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in items" class="tableData no-gutter">
+                                                <td>
+                                                    {{item.AppointmentDateTime}}
+                                                </td>
+                                                <td>
+                                                    {{item.EndTime}}
+                                                </td>
+                                                <td>
+                                                    {{item.Status}}
+                                                </td>
+                                                <td>
+                                                    {{item.DocName}}
+                                                </td>
+                                                <td>
+                                                    {{item.ClinicName}}
+                                                </td>
+                                                <td>
+                                                    {{item.Address}}
+                                                </td>
+                                                <td>
+                                                    {{item.City}}
+                                                </td>
+                                                <td>
+                                                    {{item.State}}
+                                                </td>
+                                                <td>
+                                                    {{item.Reason}}
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn-link" data-toggle="modal" data-target="#CancelAppointment">
+                                                        Cancel
+                                                    </button>
+                                                    &nbsp
+                                                    <button type="button" class="btn-link" data-toggle="modal" data-target="#MoveAppointment">
+                                                        Move
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </fieldset>
+                            <div class="modal fade bs-example-modal-md" id="CancelAppointment" tabindex="-1"
+                                role="dialog" aria-labelledby="myModalLabel">
+                                <div class="modal-dialog modal-md" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">
+                                                Cancel Appointment</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row form-horizontal form-group">
+                                                <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                                    <label class="control-label formlable">
+                                                        Cancellation Reason*</label>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                                                    <textarea class="form-control" id="Textarea2"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="center-block" style="text-align: center;">
+                                                <button type="button" class="btn btn-primary">
+                                                    Submit</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                                    Cancel</button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade bs-example-modal-lg" id="MoveAppointment" tabindex="-1" role="dialog"
+                                aria-labelledby="myModalLabel">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title" id="H1">
+                                                Move Appointment</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row form-horizontal form-group">
+                                                <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2">
+                                                    <label class="control-label formlable">
+                                                        Move Reason*</label>
+                                                </div>
+                                                <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                                                    <textarea class="form-control" id="Textarea3"></textarea>
+                                                </div>
+                                            </div>
+                                            <fieldset class="fsStyle">
+                                                <legend class="legendStyle"><b>Available Appointments at Orange County Pain Center in
+                                                    Omaha</b></legend>
+                                                <div class="table-responsive" ng-controller="AvailableAppointmentsCtrl">
+                                                    <table class="table table-bordered table-hover">
+                                                        <thead>
+                                                            <tr class="tableDataHead success">
+                                                                <th>
+                                                                    Date
+                                                                </th>
+                                                                <th>
+                                                                    Time
+                                                                </th>
+                                                                <th>
+                                                                    Doctor Name
+                                                                </th>
+                                                                <!-- <th>
+                                                                    Clinic Name
+                                                                </th>-->
+                                                                <!-- <th>
+                                                                    Address Line1
+                                                                </th>
+                                                                <th>
+                                                                    City
+                                                                </th>
+                                                                <th>
+                                                                    State
+                                                                </th>-->
+                                                                <th>
+                                                                    Action
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr ng-repeat="item in items" class="tableData">
+                                                                <td>
+                                                                    {{item.AppointmentDateTime}}
+                                                                </td>
+                                                                <td>
+                                                                    {{item.EndTime}}
+                                                                </td>
+                                                                <td>
+                                                                    {{item.DocName}}
+                                                                </td>
+                                                                <!-- <td>
+                                                                    {{item.ClinicName}}
+                                                                </td>-->
+                                                                <!--<td>
+                                                                    {{item.Address}}
+                                                                </td>
+                                                                <td>
+                                                                    {{item.City}}
+                                                                </td>
+                                                                <td>
+                                                                    {{item.State}}
+                                                                </td>-->
+                                                                <td>
+                                                                    <button type="button" class="btn-link" data-toggle="modal">
+                                                                        Select
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </fieldset>
+                                            <br />
+                                            <div class="center-block" style="text-align: center;">
+                                                <button type="button" class="btn btn-primary">
+                                                    Submit</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                                    Cancel</button>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="History" class="tab-pane fade">
+                            <br />
+                            <fieldset class="fsStyle">
+                                <legend class="legendStyle"><b>Appointments History</b></legend>
+                                <div class="table-responsive" ng-controller="AppointmentHistoryCtrl">
+                                    <table class="table table-bordered table-hover">
+                                        <thead>
+                                            <tr class="tableDataHead success">
+                                                <th>
+                                                    Date
+                                                </th>
+                                                <th>
+                                                    Time
+                                                </th>
+                                                <th>
+                                                    Status
+                                                </th>
+                                                <th>
+                                                    Doctor Name
+                                                </th>
+                                                <th>
+                                                    Clinic Name
+                                                </th>
+                                                <th>
+                                                    Address Line1
+                                                </th>
+                                                <th>
+                                                    City
+                                                </th>
+                                                <th>
+                                                    State
+                                                </th>
+                                                <th>
+                                                    Reason
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="item in items" class="tableData">
+                                                <td>
+                                                    {{item.AppointmentDateTime}}
+                                                </td>
+                                                <td>
+                                                    {{item.EndTime}}
+                                                </td>
+                                                <td>
+                                                    {{item.Status}}
+                                                </td>
+                                                <td>
+                                                    {{item.DocName}}
+                                                </td>
+                                                <td>
+                                                    {{item.ClinicName}}
+                                                </td>
+                                                <td>
+                                                    {{item.Address}}
+                                                </td>
+                                                <td>
+                                                    {{item.City}}
+                                                </td>
+                                                <td>
+                                                    {{item.State}}
+                                                </td>
+                                                <td>
+                                                    {{item.Reason}}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div id="Profile" class="tab-pane fade">
+                            <br />
+                            <fieldset class="fsStyle">
+                                <legend class="legendStyle">My Profile</legend>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <fieldset class="fsStyle" style="min-height: 314px; max-height: 314px;">
+                                            <legend class="legendStyle">My Info</legend>
+                                            <!--  <div class="row">-->
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-2 formlable">
+                                                    First Name</label>
+                                                <div class="col-sm-4">
+                                                    <label id="lfname" class="control-label lblAns">
+                                                        Sneha</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    MI</label>
+                                                <div class="col-sm-5">
+                                                    <label id="lmi" class="control-label lblAns">
+                                                        MI</label>
+                                                </div>
+                                            </div>
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-2 formlable">
+                                                    Last Name</label>
+                                                <div class="col-sm-4">
+                                                    <label id="llname" class="control-label lblAns">
+                                                        Pavuluri</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    SSN</label>
+                                                <div class="col-sm-5">
+                                                    <label id="lssn" class="control-label lblAns">
+                                                        0001</label>
+                                                </div>
+                                            </div>
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-2 formlable">
+                                                    Date Of Birth</label>
+                                                <div class="col-sm-4">
+                                                    <label id="ldob" class="control-label lblAns">
+                                                        11/28/1993</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    Sex</label>
+                                                <div class="col-sm-5">
+                                                    <div class="controls">
+                                                        <label id="lsex" class="control-label lblAns">
+                                                            F</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-2 formlable">
+                                                    Married</label>
+                                                <div class="col-sm-4">
+                                                    <div class="controls">
+                                                        <label id="lmarried" class="control-label lblAns">
+                                                            No</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <fieldset class="fsStyle">
+                                                    <legend class="legendStyle">Address</legend>
+                                                    <div class="row form-horizontal form-group">
+                                                        <label class="control-label col-sm-2 formlable">
+                                                            Line 1</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="laddress1" class="control-label lblAns">
+                                                                Omaha</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-horizontal form-group">
+                                                        <label class="control-label col-sm-2 formlable">
+                                                            City</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="lcity" class="control-label lblAns">
+                                                                Omaha</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-horizontal form-group">
+                                                        <label class="control-label col-sm-2 formlable">
+                                                            Zip</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="lzip" class="control-label lblAns">
+                                                                0000874</label>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <fieldset class="fsStyle">
+                                                    <legend class="legendStyle">Contact</legend>
+                                                    <div class="row form-horizontal form-group">
+                                                        <label class="control-label col-sm-3 formlable">
+                                                            Home Phone</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="lhphone" class="control-label lblAns">
+                                                                402000210</label>
+                                                        </div>
+                                                        <label class="control-label col-sm-3 formlable" style="width: 100px;">
+                                                            Work Phone</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="lwphone" class="control-label lblAns">
+                                                                12345875</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-horizontal form-group">
+                                                        <label class="control-label col-sm-3 formlable">
+                                                            Mobile Phone</label>
+                                                        <div class="col-sm-3">
+                                                            <label id="lmphone" class="control-label lblAns">
+                                                                8564785896</label>
+                                                        </div>
+                                                        <label class="control-label col-sm-2 formlable">
+                                                            Email</label>
+                                                        <div class="col-sm-4">
+                                                            <label id="lemail" class="control-label lblAns">
+                                                                Exe@gmail.com</label>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <fieldset class="fsStyle">
+                                            <legend class="legendStyle">Responsible Party Information</legend>
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-1 formlable">
+                                                    First Name</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrfname" class="control-label lblAns">
+                                                        Example</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    Last Name</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrlname" class="control-label lblAns">
+                                                        Exe last</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    MI</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrmi" class="control-label lblAns">
+                                                        MI</label>
+                                                </div>
+                                            </div>
+                                            <div class="row form-horizontal form-group">
+                                                <label class="control-label col-sm-1 formlable">
+                                                    SSN</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrssn" class="control-label lblAns">
+                                                        SSN001</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    Date Birth</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrdob" class="control-label lblAns">
+                                                        07/25/1989</label>
+                                                </div>
+                                                <label class="control-label col-sm-1 formlable">
+                                                    Relationship</label>
+                                                <div class="col-sm-3">
+                                                    <label id="lrrelation" class="control-label lblAns">
+                                                        Father</label>
+                                                </div>
+                                            </div>
+                                            <fieldset class="fsStyle">
+                                                <legend class="legendStyle">Insurance Info</legend>
+                                                <div class="row form-horizontal form-group">
+                                                    <label class="control-label col-sm-1 formlable">
+                                                        ID #</label>
+                                                    <div class="col-sm-2">
+                                                        <label id="lid" class="control-label lblAns">
+                                                            1234568575</label>
+                                                    </div>
+                                                    <label class="control-label col-sm-1 formlable">
+                                                        Group #</label>
+                                                    <div class="col-sm-2">
+                                                        <label id="lgroup" class="control-label lblAns">
+                                                            G1234</label>
+                                                    </div>
+                                                    <label class="control-label col-sm-1 formlable">
+                                                        Company</label>
+                                                    <div class="col-sm-2">
+                                                        <label id="lcompany" class="control-label lblAns">
+                                                            IBM</label>
+                                                    </div>
+                                                    <label class="control-label col-sm-1 formlable">
+                                                        Type</label>
+                                                    <div class="col-sm-2">
+                                                        <label id="ltype" class="control-label lblAns">
+                                                            Type 123</label>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <br />
+                            </fieldset>
+                        </div>
+                        <br />
+                        <div class="center-block" style="text-align: center;">
+                            <button type="button" class="btn btn-primary" onclick="location.href = 'DoctorDashboard.html';">
+                                Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push">
+        </div>
+    </div>
+    </form>
+</body>
+</html>

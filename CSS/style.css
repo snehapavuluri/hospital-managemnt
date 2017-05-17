@@ -1,0 +1,102 @@
+.topbar
+{
+    background-color: #D2C6D8;
+}
+
+.form-control
+{
+    height: 26px;
+}
+.tableData
+{
+    font-size: 13px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.tableDataHead
+{
+    font-size: 12px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th
+{
+    padding: 2px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+
+fieldset.fsStyle
+{
+    border: 1px solid #999999;
+    padding: 10px;
+    margin: 1px;
+}
+legend.legendStyle
+{
+    font-size: 100%;
+    padding: 5px;
+    color: #888888;
+    background-color: transparent;
+    font-weight: bold;
+}
+
+legend
+{
+    width: auto;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+.form-horizontal .control-label
+{
+    text-align: left;
+    padding-left: 25px;
+}
+.form-horizontal .form-control
+{
+    text-align: left !important;
+}
+
+.formlable
+{
+    font-size: 12px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.lblAns
+{
+    font-weight: normal !important;
+}
+
+.form-controlGrid
+{
+    display: table-row;
+    width: 30%;
+}
+
+.form-controlGrid2
+{
+    display: table-row;
+    width: 40%;
+}
+
+.form-controlStar
+{
+    width: 95%;
+    display: table-row;
+}
+
+.tablerow
+{
+    display: table-row;
+}
+

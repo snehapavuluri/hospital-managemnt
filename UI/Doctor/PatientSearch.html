@@ -1,0 +1,127 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <title>Doctor Appointment And Scheduling System</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.5/angular.js" data-semver="1.2.5" data-require="angular.js@1.2.5"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/css/bootstrap-dialog.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.5/js/bootstrap-dialog.min.js"></script>
+    <link href="http://ironsummitmedia.github.io/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="../../Js/Doctor.js" type="text/javascript"></script>
+    <script src="../../Js/Common.js" type="text/javascript"></script>
+    <link href="../../CSS/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="app">
+    <form name="productForm">
+    <div id="main">
+        <div class="topbar" style="">
+            <div class="fill">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h3>
+                                <img src="../../Images/Doctor.png" width="30" height="28" alt="Doctor Appointment And Scheduling System - Appointment Search"
+                                    title="Doctor Appointment And Scheduling System - Appointment Search">
+                                Doctor Appointment And Scheduling System - Patient Search</h3>
+                        </div>
+                        <div class="col-sm-2">
+                            <ul class="nav secondary-nav">
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>Sneha Pavuluri <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-fw fa-user"></i>Change Password</a> </li>
+                                        <li class="divider"></li>
+                                        <li><a href="../../DoctorLogin.html"><i class="fa fa-fw fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="container">
+                <div class="menu_nav">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="PatientSearch.html">Patients</a></li>
+                        <li><a href="DoctorDashboard.html">Doctor Dashboard</a></li>
+                        <li><a href="DoctorClinicDetails.html">Clinic Home</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="page_home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-5">
+                        <fieldset class="fsStyle">
+                            <legend class="legendStyle">Patient Search</legend>
+                            <div class="row form-group" id="exSelects">
+                                <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                   <label id="Label14" class="control-label">
+                                        First Name*</label>
+                                </div>
+                               <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <input type="text" class="form-control" id="firstName">
+                                </div>
+                                <!--/col-->
+                            </div>
+                            <div class="row form-group" id="Div1">
+                               <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                    <label id="Label1" class="control-label">
+                                        Last Name*</label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <input type="text" class="form-control" id="lastName">
+                                </div>
+                                <!--/col-->
+                            </div>
+                            <div class="row form-group" id="Div2">
+                                <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                    <label id="Label2" class="control-label">
+                                        Date of Birth</label>
+                                </div>
+                               <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <input type="text" class="form-control" id="DOB">
+                                </div>
+                                <!--/col-->
+                            </div>
+                            <div class="row form-group" id="Div3">
+                                <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                    <label id="Label3" class="control-label">
+                                        Sex</label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                                    <select class="form-control" id="listSex" style="height: 30px;">
+                                        <option>M</option>
+                                        <option>F</option>
+                                    </select>
+                                </div>
+                                <!--/col-->
+                            </div>
+                            <div class="center-block" style="text-align: center;">
+                                <input id="btnSearch" type="button" value="Search" class="btn btn-primary" onclick="ValidatePatientSearch();" />
+                                &nbsp
+                                <button onclick="resetPatient()" class="btn btn-warning">
+                                    Reset</button>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

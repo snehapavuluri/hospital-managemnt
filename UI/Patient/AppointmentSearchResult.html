@@ -1,0 +1,169 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <title>Doctor Appointment And Scheduling System</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.5/angular.js" data-semver="1.2.5" data-require="angular.js@1.2.5"></script>
+    <link href="http://ironsummitmedia.github.io/startbootstrap-sb-admin/font-awesome/css/font-awesome.min.css"
+        rel="stylesheet" type="text/css" />
+    <script src="../../Js/Doctor.js" type="text/javascript"></script>
+    <script src="../../Js/Common.js" type="text/javascript"></script>
+    <link href="../../CSS/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-app="app">
+    <form name="productForm">
+    <div id="main">
+        <div class="topbar" style="">
+            <div class="fill">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h3>
+                                <img src="../../Images/Doctor.png" width="30" height="28" alt="Doctor Appointment And Scheduling System - My Dashboard"
+                                    title="Doctor Appointment And Scheduling System - My Dashboard">
+                                Doctor Appointment And Scheduling System - Appointment Search</h3>
+                        </div>
+                        <div class="col-sm-2">
+                            <ul class="nav secondary-nav">
+                                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user"></i>Sneha Pavuluri <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fa fa-fw fa-user"></i>Change Password</a> </li>
+                                        <li class="divider"></li>
+                                        <li><a href="../../PatientLogin.html"><i class="fa fa-fw fa-power-off"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="menu">
+            <div class="container">
+                <div class="menu_nav">
+                    <ul class="nav nav-pills">
+                        <li class="active"><a href="AppointmentSearch.html">Appointments</a></li>
+                        <li><a href="PatientDashboard.html">Patient Dashboard</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="page_home">
+            <div class="container">
+                <fieldset class="fsStyle">
+                    <legend class="legendStyle"><b>Appointment Search Results</b></legend>
+                    <div class="table-responsive" ng-controller="ResultCtrl">
+                        <table class="table table-bordered table-hover">
+                            <thead>
+                                <tr class="tableDataHead success">
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Time
+                                    </th>
+                                    <th>
+                                        Doctor Name
+                                    </th>
+                                    <th>
+                                        Clinic Name
+                                    </th>
+                                    <th>
+                                        Address Line1
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        State
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in items" class="tableData">
+                                    <td>
+                                        {{item.AppointmentDateTime}}
+                                    </td>
+                                    <td>
+                                        {{item.EndTime}}
+                                    </td>
+                                    <td>
+                                        {{item.DocName}}
+                                    </td>
+                                    <td>
+                                        {{item.ClinicName}}
+                                    </td>
+                                    <td>
+                                        {{item.Address}}
+                                    </td>
+                                    <td>
+                                        {{item.City}}
+                                    </td>
+                                    <td>
+                                        {{item.State}}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn-link" data-toggle="modal" data-target="#myModal">
+                                            Schedule
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </fieldset>
+                <br />
+                <div class="center-block" style="text-align: center;">
+                    <button type="button" class="btn btn-primary" onclick="location.href = 'AppointmentSearch.html';">
+                        Back</button>
+                </div>
+                <div class="modal fade bs-example-modal-md" id="myModal" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel">
+                    <div class="modal-dialog modal-md" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    Appointment Schedule</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row form-horizontal form-group">
+                                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                        <label class="control-label formlable">
+                                            Appointment Reason*</label>
+                                    </div>
+                                    <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
+                                        <textarea class="form-control" id="message-text"></textarea>
+                                    </div>
+                                </div>
+                                <div class="center-block" style="text-align: center;">
+                                    <button type="button" class="btn btn-primary">
+                                        Submit</button>
+                                    <button type="button" class="btn btn-warning" data-dismiss="modal">
+                                        Cancel</button>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push">
+        </div>
+    </div>
+    </form>
+</body>
+</html>
